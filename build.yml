@@ -14,13 +14,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Validate Gradle Wrapper
-        run: |
-          echo "Checking for gradlew..."
-          if [ ! -f "gradlew" ]; then echo "Error: gradlew file not found in root!"; exit 1; fi
-          echo "Checking for gradle-wrapper.jar..."
-          if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then echo "Error: gradle-wrapper.jar not found in gradle/wrapper/!"; exit 1; fi
-
       - name: Make gradlew executable
         run: chmod +x gradlew
 
@@ -30,5 +23,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Minecraft-Mod-Build
+          name: Minecraft-Mod-File
           path: build/libs/*.jar
